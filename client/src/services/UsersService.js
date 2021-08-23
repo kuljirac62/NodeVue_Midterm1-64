@@ -5,15 +5,15 @@ export default {
         return Api().get('users')
     },
     show(userId){
-        return Api().get('user/'+userId)
+        return Api().get('TaxiDriverr/'+userId)
     },
-    post(user){
-        return Api().post('user', user)
+    post(TaxiDriver){
+        return Api().post('TaxiDriver', TaxiDriver)
     },
-    put(user){
-        return Api().put('user/'+user.id, user)
+    put(TaxiDriver){
+        return Api().put('TaxiDriver/'+user.id, TaxiDriver)
     },
-    delete(user){
-        return Api().delete('user/'+user.id, user)
+    delete(TaxiDriver){
+        return Api().delete('TaxiDriver/'+user.id, TaxiDriver)
     },
 }

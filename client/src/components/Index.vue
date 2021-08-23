@@ -1,29 +1,29 @@
 <template>
   <div>
-    <h1>Get All Users</h1>
+    <h1>Get All TaxiDriver</h1>
     <div v-if="users.length">
       <h4>จำนวนผู้ใช้งาน {{ users.length }}</h4>
       <p>
-        <button v-on:click="navigateTo('/user/create')">
+        <button v-on:click="navigateTo('/TaxiDriver/create')">
             สร้างผู้ใช้งาน
           </button>
       </p>
       <div v-for="user in users" v-bind:key="user.id">
         <p>id: {{ user.id }}</p>
-        <p>ชื่อ-นามสกุล: {{ user.name }} - {{ user.lastname }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Password: {{ user.password }}</p>
-        <p>
-          <button v-on:click="navigateTo('/user/' + user.id)">
+        <p>ชื่อ-นามสกุล: {{ TaxiDriver. FirstName }} - {{TaxiDriver.lastname }}</p>
+        <p>วันเกิด: {{ TaxiDriver.birth_date }}</p>
+        <p>เลขที่ใบขับขี่: {{ TaxiDriver.driving_licence_number }}</p>
+        <p>ใบขับขี่หมดอายุ: {{TaxiDriver.expiry_date }}</p>
+          <button v-on:click="navigateTo('/user/' + TaxiDriver.id)">
             ดูข้อมูลผู้ใช้
           </button>
-          <button v-on:click="navigateTo('/user/edit/' + user.id)">
+          <button v-on:click="navigateTo('/user/edit/' + TaxiDriver.id)">
             แก้ไขข้อมูล
           </button>
-          <button v-on:click="deleteUser(user)">
+          <button v-on:click="deleteUser(TaxiDriver)">
             ลบข้อมูล
           </button>
-        </p>
+        
         <hr />
       </div>
     </div>

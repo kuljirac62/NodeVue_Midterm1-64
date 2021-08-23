@@ -1,19 +1,21 @@
 <template>
 <div>
-    <h1>Create User</h1>
+    <h1>Create TaxiDriver</h1>
     <form v-on:submit.prevent = "createUser">
-        <p>name: <input type="text" v-model="user.name"></p>
-        <p>lastname: <input type="text" v-model="user.lastname"></p>
-        <p>email: <input type="text" v-model="user.email"></p>
-        <p>password: <input type="text" v-model="user.password"></p>
-        <p><button type="submit">create user</button></p>
+        <p>ชื่อ: <input type="text" v-model="TaxiDriver.FirstName"></p>
+        <p>นามสกุล: <input type="text" v-model="TaxiDriver.LastName"></p>
+        <p>วันเกิด: <input type="text" v-model="TaxiDriver.birth_date"></p>
+        <p>เลขที่ใบขับขี่: <input type="text" v-model="TaxiDriver.driving_licence_number "></p>
+        <p>ใบขับขี่หมดอายุ: <input type="text" v-model="TaxiDriver.expiry_date"></p>
+        <p><button type="submit">create TaxiDriver</button></p>
     </form>
     <hr>
     <div>
-        <p>name: {{user.name}}</p>
-        <p>lastname: {{user.lastname}}</p>
-        <p>email: {{user.email}}</p>
-        <p>password: {{user.password}}</p>
+        <p>ชื่อ: {{TaxiDriver.FirstName}}</p>
+        <p>นามสกุล: {{TaxiDriver.LastName}}</p>
+        <p>วันเกิด: {{TaxiDriver.birth_date}}</p>
+        <p>เลขที่ใบขับขี่: {{TaxiDriver.driving_licence_number}}</p>
+        <p>ใบขับขี่หมดอายุ: {{TaxiDriver.expiry_date}}</p>
     </div>
 </div>
 </template>
@@ -23,19 +25,19 @@ import UsersService from '@/services/UsersService'
 export default {
     data(){
         return{
-            user:{
-                name: '',
-                lastname: '',
-                email: '',
-                password: '',
-                status: 'active'
+            TaxiDriver:{
+                FirstName: '',
+                LastName: '',
+                birth_date: '',
+                driving_licence_number: '',
+                expiry_date: ''
             }
         }
     },
     methods:{
         async createUser(){
             try{
-                await UsersService.post(this.user)
+                await UsersService.post(this.TaxiDriver)
                 this.$router.push({
                     name: 'users'
                 })
